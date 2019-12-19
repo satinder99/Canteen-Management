@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Admin_Page</title>
+		<style>
+			#big{
+			font-size: 34px;
+			}
+			
+			body{
+			background-size: cover;
+			background-image: url("../../include/870777.jpg");
+			color: white;
+			}
+			input[type=submit]{
+			height:6%;
+			width:35%;
+			color:white;
+			background-color:dodgerblue;
+			}
+			input{
+			height:6%;
+			width:35%;
+			}
+			#container
+			{
+				margin-left:40%;
+				margin-top:10%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id='container'>
+		<!--	<label id='big'><b>Admin Login</b></label><br><br>
+			<label>Username</label><br>
+			<input type="text" name="username" placeholder="Enter your Username"><br>
+			<label>Password</label><br>
+			<input type="password" name="password" placeholder="Enter your Password"><br><br>
+			<input type="submit" value="Login"><br>
+		-->
+		 <form action="welcome.php" method="post">
+ 
+    <label for="uname"><b>Username</b></label>
+    <br><input type="text" placeholder="Enter Username" name="uname" required>
+    <br>
+    <label for="psw"><b>Password</b></label>
+    <br><input type="password" placeholder="Enter Password" name="psw" required>
+    <br>
+    <br>
+    <button height='30px' width='100px' type="submit">Login</button>
+		 </form>
+		</div>
+	</body>
+</html>
