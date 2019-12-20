@@ -85,12 +85,12 @@ if($_SESSION['user']=='')
                         <tr>
                                 <td id='left'>
                                         <a href='../Breakfast/mybreakfast.php'>breakfast</a><br>
-                                        <a href='../Lunch/mylunch.php'>Lunch</a><br>
-                                        <a href=''>dinner</a><br>
+                                        <a href=''>Lunch</a><br>
+                                        <a href='../Dinner/mydinner.php'>dinner</a><br>
                                 </td>
 				<td id='addHere'>
 					<div class='text-right'>
-                                  	<a href='./break.php'><button class='btn-primary additem'>add item</button></a>
+                                  	<a href='./lu.php'><button class='btn-primary additem'>add item</button></a>
 					</div>
 						       
 				</td>
@@ -116,9 +116,16 @@ if($_SESSION['user']=='')
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $db);
 
-			$sql = "SELECT * FROM Breakfast";
+			$sql = "SELECT * FROM Lunch";
 			$result=$conn->query($sql);
-
+		/*	$no_rows=0;
+			if ($result->num_rows > 0) {
+                            // output data of each row
+                                while($row = $result->fetch_assoc()) {
+					$no_rows+=1;
+				}
+			}
+		 */
 			if ($result->num_rows > 0) {
 				// output data of each ro
 					while($row = $result->fetch_assoc()) 

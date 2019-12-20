@@ -90,7 +90,7 @@ if($_SESSION['user']=='')
                                 </td>
 				<td id='addHere'>
 					<div class='text-right'>
-                                  	<a href='./break.php'><button class='btn-primary additem'>add item</button></a>
+                                  	<a href='./din.php'><button class='btn-primary additem'>add item</button></a>
 					</div>
 						       
 				</td>
@@ -116,9 +116,16 @@ if($_SESSION['user']=='')
 			// Create connection
 			$conn = new mysqli($servername, $username, $password, $db);
 
-			$sql = "SELECT * FROM Breakfast";
+			$sql = "SELECT * FROM Dinner";
 			$result=$conn->query($sql);
-
+		/*	$no_rows=0;
+			if ($result->num_rows > 0) {
+                            // output data of each row
+                                while($row = $result->fetch_assoc()) {
+					$no_rows+=1;
+				}
+			}
+		 */
 			if ($result->num_rows > 0) {
 				// output data of each ro
 					while($row = $result->fetch_assoc()) 

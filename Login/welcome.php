@@ -20,6 +20,8 @@ if($count==0)
         header("location:Admin_Page.html");
 }
 $_SESSION["user"]=$_POST['uname'];
+
+header("location:../Breakfast/mybreakfast.php");
 ?>
 <html>
 	<head> 
@@ -43,6 +45,35 @@ $_SESSION["user"]=$_POST['uname'];
 			td{
 				vertical-align:top;
 			}
+			 #mydiv
+                        {
+                                height:200px;
+                                width:260px;
+                                border:4px solid black;
+                                float:left;
+                                margin-right:20px;
+                                margin-bottom:20px;
+                        }
+                        .main
+                        {
+                                float:left;
+                                border:2px solid black;
+                        }
+                        #div1
+                        {
+                                width:80%;
+                        }
+                        #div2
+                        {
+                                margin-top:200px;
+                                height:500px;
+                                width:18%;
+                        }
+                        .additem
+                        {
+                                margin-bottom:30px;
+                        }
+
                 </style>
         <script>
 
@@ -68,15 +99,15 @@ $_SESSION["user"]=$_POST['uname'];
                                 </ul>
                         </div>
                 </nav>
-               <div class='container'> 
-		<table border='2px' width='100%' height="100%">
+               <div class='container-fluid'> 
+		<table width='100%' height="100%">
 			<tr>
 			</tr>
 			<tr>
 				<td id='left'>
 					<a href='../Breakfast/mybreakfast.php'>breakfast</a><br>
-					<a href=''>Lunch</a><br>
-					<a href=''>dinner</a><br>
+					<a href='../Lunch/mylunch.php'>Lunch</a><br>
+					<a href='../Dinner/mydinner.php'>dinner</a><br>
 				</td>
 				<td>
 					OVERVIEW
@@ -86,6 +117,50 @@ $_SESSION["user"]=$_POST['uname'];
 			</tr>
 		</table>
 		</div>
+ 		  <div id='div2' class='main'>
+                        <pre><h1>    CART</h1></pre>
+                        <h3>Total Amount  : <p id='amount'></p></h3>
+                </div>
+
         </body>
 </html>
 
+<?php 
+
+ $sql = "SELECT * FROM Breakfast LIMIT 3";
+                        $result=$conn->query($sql);
+
+                        if ($result->num_rows > 0) {
+                                // output data of each ro
+                                        while($row = $result->fetch_assoc())
+                                        {
+
+                                                $foodID=$row['food_id'];
+                                                $b_name=$row['b_name'];
+                                                $time=$row['preparing_time'];
+                                                $cost=$row['cost'];
+                                //              echo "<script> alert(' $foodID ') </script>";
+                                                echo "<script> var i=0;
+                                                         var divi = document.createElement('div');
+                                                        divi.id='mydiv';
+
+                                                         document.getElementById('addHere').appendChild(divi);
+                                                        var para=document.createElement('p');
+
+                                                        var a='food ID : '+'$foodID'+' <br>'+'BREAKFAST NAME : '+'$b_name'+'<br>'+'COST : $cost'+' <br>'+' TIME : $time';
+
+                                                         para.innerHTML=a;
+                                                        divi.appendChild(para);
+                                                        var but=document.createElement('button');
+                                                        but.innerHTML='Add to cart';
+                                                        but.onclick='function aa(){alert(1);}';
+                                                        but.id='foodbutton';
+                                                        but.class='btn-success';
+                                                        divi.appendChild(but);
+
+                                                 </script>";
+                                        }
+                                }
+
+
+?>

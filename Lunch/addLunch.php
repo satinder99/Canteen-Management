@@ -16,13 +16,13 @@ $f_name=$_POST['f_name'];
 $time=$_POST['time'];
 $cost=$_POST['cost'];
 
-$sql="insert into Breakfast values('$food_id','$f_name','$time','$cost')";
+$sql="insert into Lunch values('$food_id','$f_name','$time','$cost')";
 
 if ($conn->query($sql) === TRUE) {
-	header('location:mybreakfast.php');
+	header('location:mylunch.php');
 }
 else
 {
-	header("location:break.php");
+	header("location:lu.php");
 }
-
+?>
